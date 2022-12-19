@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>1st React App</title>
+</head>
+<body>
+    <div id = "App"></div>
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script type= "text/babel">
+        const root = document.getElementById("App");
+        var Title = (props)=>{
+            return (<div>
+                        <h2>{props.title}</h2>
+                        <hr />
+                    </div>
+            )}
+
+        var TodoList = (props)=>{
+            var todoList = props.todos.map((item,idx)=>{
+                let status = item.donestatus? "완료" : "진행중";
+                return(
+                    <li  key = {item.id}>
+                        {item.todo}-{status}
+                    </li>
+                );
+
+            });
+            return <ul>{todoList}</ul>
+        }
+
+        var App = () =>{
+            var data = {
+                title : "해야할 일",
+                todos : [
+                    {id : 1,todo :  "리액트 공부",done : false},
+                    {id : 2,todo :  "타입스크립트 정리",done : true},
+                    {id : 3,todo :  "Styled Components 학습",done : true},
+                    {id : 4,todo :  "명상",done : false},
+                    ]
+            };
+            return(
+                <div>
+                    <Title title={data.title}/>
+                    <TodoList todos={data.todos}/>
+                </div>
+            )
+        }
+
+        ReactDOM.render(<App/>,root);
+    </script>
+</body>
+</html>
