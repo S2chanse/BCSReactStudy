@@ -1,0 +1,17 @@
+import React from 'react';
+import { CountryType } from './App';
+import CountryItem from './CountryItem';
+
+type CountryListPropsType = {
+  countires: CountryType[];
+};
+export default function CountryList({ countires }: CountryListPropsType) {
+  let makeList = countires.map((item, idx) => {
+    return <CountryItem countryItem={item} />;
+  });
+  return (
+    <>
+      <ul className='list-group'>{makeList}</ul>
+    </>
+  );
+}

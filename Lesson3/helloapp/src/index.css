@@ -68,3 +68,7 @@ button:focus-visible {
     background-color: #f9f9f9;
   }
 }
+hr.dash-style {
+  background-color: #ffffff;
+  border-top: 2px dashed gray;
+}
