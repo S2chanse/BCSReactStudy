@@ -10,4 +10,7 @@
 
 # 20221222
 
-## Lesson2 Babel 사용
+## Lesson2
+
+1.babel<br />
+2.Let
