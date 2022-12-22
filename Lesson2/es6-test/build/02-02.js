@@ -1,4 +1,4 @@
-'use strict';
+"use strict";
 
 var msg = 'Global';
 function outer() {
