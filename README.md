@@ -24,4 +24,4 @@
 *인라인 스타일<br />
 *styled-components(생성, 확장)<br />
 유효성 검증(prop-types)
-기본값 셋
+기본값 셋<br /> 4.리액트 이벤트<br/> \*이벤트 발생
