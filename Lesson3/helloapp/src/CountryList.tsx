@@ -1,6 +1,7 @@
 import React from 'react';
 import { CountryType } from './App';
 import CountryItem from './CountryItem';
+import styles from './styles';
 
 type CountryListPropsType = {
   countires: CountryType[];
@@ -11,7 +12,7 @@ export default function CountryList({ countires }: CountryListPropsType) {
   });
   return (
     <>
-      <ul className='list-group'>{makeList}</ul>
+      <ul style={styles.listItemStyle}>{makeList}</ul>
     </>
   );
 }

@@ -5,7 +5,7 @@ type CountryItemProps = {
   countryItem: CountryType;
 };
 export default function CountryItem({ countryItem }: CountryItemProps) {
-  const [visited, setVisited] = useState(countryItem.visited);
+  const [visited, setVisited] = useState<boolean>(countryItem.visited);
   return (
     <li
       onClick={() => setVisited(!visited)}

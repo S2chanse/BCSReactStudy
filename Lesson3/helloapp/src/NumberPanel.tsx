@@ -5,7 +5,7 @@ type NumberPanelPropsType = {
   b: number;
 };
 export default function NumberPanel({ a, b }: NumberPanelPropsType) {
-  const [sum, setSum] = useState(a + b);
+  const [sum, setSum] = useState<number>(a + b);
   const addClickSum = () => {
     let resultSum = sum + 1;
     setSum(resultSum);

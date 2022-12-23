@@ -3,6 +3,8 @@ import reactLogo from './assets/react.svg';
 import './App.css';
 import CountryList from './CountryList';
 import NumberPanel from './NumberPanel';
+import styles from './styles';
+import Footer from './Footer';
 type Props = {};
 export type CountryType = {
   no: number;
@@ -22,13 +24,14 @@ function App(props: Props) {
   const add = (a: number, b: number) => {
     return <NumberPanel a={a} b={b} />;
   };
-
+  const [theme, setTheme] = useState<string>('basic');
   return (
     <div className='container'>
       {msg}!
-      <hr className='dash-style' />
+      <hr style={styles.dashStyle} />
       {add(3, 4)}
       <CountryList countires={list} />
+      <Footer theme={theme} />
     </div>
   );
 }
