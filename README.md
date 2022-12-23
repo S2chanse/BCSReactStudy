@@ -22,4 +22,6 @@
 2.props 전달 시, Type 선언하여 사용<br />
 3.style css 적용<br />
 *인라인 스타일<br />
-*styled-components(생성, 확장)<br /> \*유효성 검증(prop-types)
+*styled-components(생성, 확장)<br />
+유효성 검증(prop-types)
+기본값 셋

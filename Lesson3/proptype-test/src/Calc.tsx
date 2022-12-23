@@ -51,4 +51,10 @@ Calc.propTypes = {
   oper: calcChecker,
 };
 
+Calc.defaultProps = {
+  x: 100,
+  y: 20,
+  oper: '+',
+};
+
 export default Calc;
