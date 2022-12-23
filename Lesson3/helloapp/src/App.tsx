@@ -5,6 +5,7 @@ import CountryList from './CountryList';
 import NumberPanel from './NumberPanel';
 import styles from './styles';
 import Footer from './Footer';
+import { BasicButton, ItalicButtom, UnderLineButton } from './Buttons';
 type Props = {};
 export type CountryType = {
   no: number;
@@ -31,6 +32,9 @@ function App(props: Props) {
       <hr style={styles.dashStyle} />
       {add(3, 4)}
       <CountryList countires={list} />
+      <BasicButton>베이직</BasicButton>
+      <UnderLineButton>언더라인</UnderLineButton>
+      <ItalicButtom>이탈릭</ItalicButtom>
       <Footer theme={theme} />
     </div>
   );
