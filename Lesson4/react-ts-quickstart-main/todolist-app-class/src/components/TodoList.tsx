@@ -9,6 +9,15 @@ type Props = {
 };
 
 export default class TodoList extends Component<Props> {
+  shouldComponentUpdate(
+    nextProps: Readonly<Props>,
+    nextState: Readonly<{}>,
+    nextContext: any
+  ): boolean {
+    if (nextProps.todoList !== this.props.todoList) return true;
+
+    return false;
+  }
   render() {
     console.log('## TodoList 렌더');
     let items = this.props.todoList.map((item: TodoListItemType) => {

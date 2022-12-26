@@ -8,6 +8,14 @@ type Props = {
 };
 
 export default class TodoListItem extends Component<Props> {
+  shouldComponentUpdate(
+    nextProps: Readonly<Props>,
+    nextState: Readonly<{}>,
+    nextContext: any
+  ): boolean {
+    if (nextProps.todoItem !== this.props.todoItem) return true;
+    return false;
+  }
   render() {
     console.log('## TodoListItem 렌더');
     let itemClassName = 'list-group-item';
