@@ -1,34 +1,43 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import './App.css'
+import React, { Component } from 'react';
+import './App.css';
+import Clock from './Clock';
 
-function App() {
-  const [count, setCount] = useState(0)
+type Props = {};
 
-  return (
-    <div className="App">
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src="/vite.svg" className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://reactjs.org" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
+type State = {
+  formatString: string;
+  clockVisible: boolean;
+};
+
+class App extends Component<Props, State> {
+  state = {
+    formatString: 'HH:mm:ss',
+    clockVisible: false,
+  };
+
+  changeFormat = (format: string) => {
+    this.setState({ formatString: format });
+  };
+  render() {
+    return (
+      <div className='boxStyle'>
+        <h2>간단한 시계</h2>
+        <button
+          onClick={() =>
+            this.setState({ clockVisible: !this.state.clockVisible })
+          }
+        >
+          시계 토글하기
         </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
+        <hr />
+        {this.state.clockVisible ? (
+          <Clock formatString={this.state.formatString} />
+        ) : (
+          <></>
+        )}
       </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </div>
-  )
+    );
+  }
 }
 
-export default App
+export default App;
