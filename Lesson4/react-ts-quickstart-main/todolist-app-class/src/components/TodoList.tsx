@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import { TodoListItemType } from '../AppContainer';
 import TodoListItem from './TodoListItem';
 
@@ -8,16 +8,16 @@ type Props = {
   deleteTodo: Function;
 };
 
-export default class TodoList extends Component<Props> {
-  shouldComponentUpdate(
-    nextProps: Readonly<Props>,
-    nextState: Readonly<{}>,
-    nextContext: any
-  ): boolean {
-    if (nextProps.todoList !== this.props.todoList) return true;
+export default class TodoList extends PureComponent<Props> {
+  // shouldComponentUpdate(
+  //   nextProps: Readonly<Props>,
+  //   nextState: Readonly<{}>,
+  //   nextContext: any
+  // ): boolean {
+  //   if (nextProps.todoList !== this.props.todoList) return true;
 
-    return false;
-  }
+  //   return false;
+  // }
   render() {
     console.log('## TodoList 렌더');
     let items = this.props.todoList.map((item: TodoListItemType) => {

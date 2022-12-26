@@ -2,8 +2,11 @@
 
 ## Lesson4 리액트 클래스 컴포넌트
 
-1.리액트 클래스 컴포넌트에는 함수 컴포넌트에서 지원하지 않는 다양한 생명주기 이벤트 훅들이 제공된다.
-2.class Mount vs Unmount
+1.리액트 클래스 컴포넌트에는 함수 컴포넌트에서 지원하지 않는 다양한 생명주기 이벤트 훅들이 제공된다.<br />
+2.class Mount vs Unmount<br />
+3.getSnapshotBeforeUpdate & componentDidUpdate<br />
+4.shouldComponentUpdate<br />
+5.PureComponent
 
 ## Lesson4 컴포넌트 관련 실습
 
