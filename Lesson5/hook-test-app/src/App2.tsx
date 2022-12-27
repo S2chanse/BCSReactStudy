@@ -7,7 +7,7 @@ function App() {
   const [count, setCount] = useState<number>(0);
 
   useEffect(() => {
-    console.log(`클릭한 회수는 ${count}회 입니다.`);
+    console.log(`${msg}가 클릭한 회수는 ${count}회 입니다.`);
     return () => {
       console.log(`return 메스드 호출`);
     };
