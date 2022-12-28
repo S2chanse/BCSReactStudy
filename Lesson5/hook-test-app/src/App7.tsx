@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useMemo, useState } from 'react';
 
 type TodoListItemType = {
   id: number;
@@ -20,6 +20,11 @@ const App = () => {
   const deleteTodo = (id: number) => {
     setTodoList(todoList.filter((item) => item.id !== id));
   };
+
+  const memorizedCnt = useMemo<number>(
+    () => getTodoListCnt(todoList),
+    [todoList]
+  );
   return (
     <div className='boxStyle'>
       <input
@@ -39,7 +44,7 @@ const App = () => {
           );
         })}
       </ul>
-      <div>toDoList 개수 : {getTodoListCnt(todoList)}</div>
+      <div>toDoList 개수 : {memorizedCnt}</div>
     </div>
   );
 };
