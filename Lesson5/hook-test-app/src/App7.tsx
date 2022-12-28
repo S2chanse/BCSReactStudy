@@ -1,4 +1,4 @@
-import React, { useMemo, useState } from 'react';
+import React, { useCallback, useMemo, useState } from 'react';
 
 type TodoListItemType = {
   id: number;
@@ -13,13 +13,19 @@ const App = () => {
   const [todoList, setTodoList] = useState<TodoListItemType[]>([]);
   const [toDo, setToDo] = useState<string>('');
 
-  const addTodo = (todo: string) => {
-    let newTodoList = [...todoList, { id: new Date().getTime(), todo }];
-    setTodoList(newTodoList);
-  };
-  const deleteTodo = (id: number) => {
-    setTodoList(todoList.filter((item) => item.id !== id));
-  };
+  const addTodo = useCallback(
+    (todo: string) => {
+      let newTodoList = [...todoList, { id: new Date().getTime(), todo }];
+      setTodoList(newTodoList);
+    },
+    [todoList]
+  );
+  const deleteTodo = useCallback(
+    (id: number) => {
+      setTodoList(todoList.filter((item) => item.id !== id));
+    },
+    [todoList]
+  );
 
   const memorizedCnt = useMemo<number>(
     () => getTodoListCnt(todoList),

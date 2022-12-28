@@ -2,6 +2,8 @@
 
 1.useReducer 활용<br/>
 2.useRef<br />
+3.useMemo<br />
+4.useCallback<br />
 
 # 20221227
 
