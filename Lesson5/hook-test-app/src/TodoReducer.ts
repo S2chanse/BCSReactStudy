@@ -25,16 +25,19 @@ export type TodoActionType =
   | ReturnType<typeof TodoActionCreator.addTodo>
   | ReturnType<typeof TodoActionCreator.deleteTodo>;
 
-export const TodoReducer = (state: TodoItemType[], action: TodoActionType) => {
+export const TodoReducer = (
+  state: Array<TodoItemType>,
+  action: TodoActionType
+) => {
   switch (action.type) {
     case TODO_ACTION.ADD:
-      return produce(state, (draft) => {
+      return produce(state, (draft: Array<TodoItemType>) => {
         draft.push({ id: new Date().getTime(), todo: action.payload.todo });
       });
     case TODO_ACTION.DELETE:
       let index = state.findIndex((item) => item.id === action.payload.id);
-      return produce(state, (draft) => {
-        draft.slice(index, 1);
+      return produce(state, (draft: Array<TodoItemType>) => {
+        draft.splice(index, 1);
       });
     default:
       return state;
