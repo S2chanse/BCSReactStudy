@@ -24,9 +24,6 @@ function App4({}: Props) {
   const deleteTodo = (id: number) => {
     dispatchTodoList(TodoActionCreator.deleteTodo(id));
   };
-  useEffect(() => {
-    console.log('useEffect', initialTodoList);
-  }, [initialTodoList]);
 
   return (
     <div style={{ padding: '20px' }}>

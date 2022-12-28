@@ -1,6 +1,7 @@
 # 20221228
 
 1.useReducer 활용<br/>
+2.useRef<br />
 
 # 20221227
 
