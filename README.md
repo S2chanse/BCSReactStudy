@@ -4,6 +4,7 @@
 
 1.useState<br />
 2.useEffect<br />
+3.reduce<br/>
 
 # 20221226
 

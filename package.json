@@ -1,5 +1,6 @@
 {
   "dependencies": {
-    "date-and-time": "^2.4.1"
+    "date-and-time": "^2.4.1",
+    "immer": "^9.0.16"
   }
 }
