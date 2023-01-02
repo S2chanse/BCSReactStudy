@@ -14,11 +14,11 @@ type Props = {
   interval: number;
 };
 
-export const connectClockTime = ({
-  TargetComponent,
-  timeFormat,
-  interval,
-}: Props) => {
+export const connectClockTime = (
+  TargetComponent: React.ComponentType<any>,
+  timeFormat: TimeFormatEnum,
+  interval: number
+) => {
   return (props: any) => {
     const [currentTime, setCurrentTime] = useState<string>(
       DateAndTime.format(new Date(), timeFormat)
