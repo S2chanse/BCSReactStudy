@@ -1,5 +1,7 @@
 import React from 'react';
 import { TodoListItemType } from './App';
+import TodoListDelButton from './TodoListDelButton';
+import TodoListItemBody from './TodoListItemBody';
 
 type Props = {
   todoListItem: TodoListItemType;
@@ -9,12 +11,11 @@ const TodoListItem = (props: Props) => {
   console.log('## TodoListItem');
   return (
     <li>
-      {props.todoListItem.todo}{' '}
-      {
-        <button onClick={() => props.deleteTodo(props.todoListItem.id)}>
-          삭제
-        </button>
-      }
+      <TodoListItemBody todoListItem={props.todoListItem} />
+      <TodoListDelButton
+        deleteTodo={props.deleteTodo}
+        id={props.todoListItem.id}
+      />
     </li>
   );
 };
