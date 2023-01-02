@@ -1,34 +1,48 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import './App.css'
+import { useCallback, useState } from 'react';
+import reactLogo from './assets/react.svg';
+import './App.css';
+import TodoList from './TodoList';
+
+export type TodoListItemType = {
+  id: number;
+  todo: string;
+};
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [todoList, setTodoList] = useState<TodoListItemType[]>([]);
+  const [todo, setTodo] = useState<string>('');
 
+  const addTodo = useCallback(
+    (todo: string): void => {
+      let newList = [...todoList, { id: new Date().getTime(), todo: todo }];
+      setTodoList(newList);
+      setTodo('');
+    },
+    [todoList]
+  );
+
+  const deleteTodo = useCallback(
+    (id: number) => {
+      let newList = [...todoList];
+      let index = todoList.findIndex((item) => item.id === id);
+      newList.splice(index, 1);
+      setTodoList(newList);
+    },
+    [todoList]
+  );
   return (
-    <div className="App">
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src="/vite.svg" className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://reactjs.org" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+    <div>
+      <input
+        type='text'
+        value={todo}
+        onChange={(e) => setTodo(e.target.value)}
+      />
+      <button onClick={() => addTodo(todo)}>저장하기</button>
+      <br />
+      <TodoList todoList={todoList} deleteTodo={deleteTodo} />
+      <div>todoList 개수 : {todoList.length}</div>
     </div>
-  )
+  );
 }
 
-export default App
+export default App;
