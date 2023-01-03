@@ -1,30 +1,24 @@
-import React from "react";
-import { TodoListItemType } from "../AppContainer";
-import TodoListItem from "./TodoListItem";
-type TodoListProps = {
-  todoList: TodoListItemType[];
-  deleteTodo: (no: number) => void;
-  toggleDone: (no: number) => void;
-};
-export default function TodoList({
-  todoList,
-  deleteTodo,
-  toggleDone,
-}: TodoListProps) {
-  let items = todoList.map((item) => {
+import React, { useContext } from 'react';
+import { TodoListItemType } from '../AppContainer';
+import TodoContext from '../TodoComtext';
+import TodoListItem from './TodoListItem';
+
+export default function TodoList() {
+  const values = useContext(TodoContext);
+  let items = values?.state.todoList.map((item) => {
     return (
       <TodoListItem
         key={item.no}
         todoItem={item}
-        deleteTodo={deleteTodo}
-        toggleDone={toggleDone}
+        deleteTodo={values?.actions.deleteTodo}
+        toggleDone={values?.actions.toggleDone}
       />
     );
   });
   return (
-    <div className="row">
-      <div className="col">
-        <ul className="list-group">{items}</ul>
+    <div className='row'>
+      <div className='col'>
+        <ul className='list-group'>{items}</ul>
       </div>
     </div>
   );

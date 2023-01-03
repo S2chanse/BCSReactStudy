@@ -1,6 +1,6 @@
-import produce from "immer";
-import React, { useState } from "react";
-import App from "./components/App";
+import produce from 'immer';
+import React, { useState } from 'react';
+import App from './components/App';
 
 export type TodoListItemType = {
   no: number;
@@ -9,10 +9,10 @@ export type TodoListItemType = {
 };
 
 const baseList: TodoListItemType[] = [
-  { no: 1, todo: "React학습 1", done: false },
-  { no: 2, todo: "React학습 2", done: false },
-  { no: 3, todo: "React학습 3", done: true },
-  { no: 4, todo: "React학습 4", done: false },
+  { no: 1, todo: 'React학습 1', done: false },
+  { no: 2, todo: 'React학습 2', done: false },
+  { no: 3, todo: 'React학습 3', done: true },
+  { no: 4, todo: 'React학습 4', done: false },
 ];
 export default function AppContainer() {
   const [todoList, setTodoList] = useState<TodoListItemType[]>(baseList);
@@ -43,10 +43,10 @@ export default function AppContainer() {
   };
   return (
     <App
-      todoList={todoList}
-      addTodo={addTodo}
-      deleteTodo={deleteTodo}
-      toggleDone={toggleDone}
+    // todoList={todoList}
+    // addTodo={addTodo}
+    // deleteTodo={deleteTodo}
+    // toggleDone={toggleDone}
     />
   );
 }
